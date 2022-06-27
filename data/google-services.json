@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "315160996447",
+    "firebase_url": "https://studypractice-b3607-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "studypractice-b3607",
+    "storage_bucket": "studypractice-b3607.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315160996447:android:6675ad453e618cd804c9ea",
+        "android_client_info": {
+          "package_name": "com.velagissellint.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315160996447-mg6hjglr1jroh74n6cm8ttc3f5pkh6vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVG2wtcqysPWSnwigfZc346Y47EQ1MahI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315160996447-mg6hjglr1jroh74n6cm8ttc3f5pkh6vr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
