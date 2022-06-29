@@ -5,11 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.velagissellint.domain.models.User
@@ -17,11 +21,18 @@ import com.velagissellint.presentation.R
 import com.velagissellint.presentation.ViewModelFactory
 import com.velagissellint.presentation.containersDi.ContainerAppContainer
 import com.velagissellint.presentation.databinding.FragmentCategoriesListBinding
+import com.velagissellint.presentation.ui.home.adapters.CategoriesListAdapter
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CategoriesListFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore
+    private lateinit var navController: NavController
+    lateinit var rv: RecyclerView
+    private lateinit var adapter: CategoriesListAdapter
 
     @Inject
     lateinit var factory: ViewModelFactory
@@ -29,6 +40,7 @@ class CategoriesListFragment : Fragment() {
 
     private var _binding: FragmentCategoriesListBinding? = null
     private val binding get() = _binding ?: throw RuntimeException("FragmentAddItemBinding == null")
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (activity?.application as ContainerAppContainer).appContainer()
@@ -44,16 +56,16 @@ class CategoriesListFragment : Fragment() {
         fStore = FirebaseFirestore.getInstance()
         setHasOptionsMenu(true)
         categoriesListViewModel =
-            ViewModelProvider(this).get(CategoriesListViewModel::class.java)
+            ViewModelProvider(this, factory).get(CategoriesListViewModel::class.java)
 
         _binding = FragmentCategoriesListBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        navController = NavHostFragment.findNavController(this)
 
-        val textView: TextView = binding.textHome
-        categoriesListViewModel.text.observe(viewLifecycleOwner) {
+        // val textView: TextView = binding.textHome
+        /*categoriesListViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
-        }
-        return root
+        }*/
+        return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -86,6 +98,35 @@ class CategoriesListFragment : Fragment() {
 //                }
         }
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView(view)
+        loadPaging()
+    }
+
+    private fun setupRecyclerView(view: View) {
+        rv = view.findViewById(R.id.rv_category)
+        rv.addItemDecoration(DividerItemDecoration(activity?.applicationContext))
+        adapter = CategoriesListAdapter()
+        rv.adapter = adapter
+        //    rv.adapter = adapter.withLoadStateFooter(ToDoListLoadStateAdapter { adapter.retry() })
+//
+    }
+    private fun loadPaging() {
+        lifecycleScope.launch {
+            categoriesListViewModel.loadCategoryList().distinctUntilChanged().collectLatest {
+                adapter.submitData(it)
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.add -> navController.navigate(R.id.addNewCategoryFragment)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {

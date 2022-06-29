@@ -8,10 +8,10 @@ data class User(
     var adm: Int,
 ) {
     constructor() : this(
-        email = "as",
-        firstName = "as",
-        phone = "as", /*isAdmin = "",*/
-        secondName = "as",
+        email = "",
+        firstName = "",
+        phone = "", /*isAdmin = "",*/
+        secondName = "",
         0
     )
 }

@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.velagissellint.presentation.BaseFragment
+import com.velagissellint.presentation.R
 import com.velagissellint.presentation.ViewModelFactory
 import com.velagissellint.presentation.containersDi.ContainerAppContainer
 import com.velagissellint.presentation.databinding.FragmentLogInBinding
@@ -54,7 +55,7 @@ class LogInFragment : BaseFragment() {
                 else
                     Toast.makeText(activity, "Поля не должны быть пустыми", Toast.LENGTH_SHORT)
                         .show()
-                navController.popBackStack()
+                navController.navigate(R.id.nav_home)
             }
         }
     }

@@ -6,4 +6,6 @@ interface AppContainer {
     fun plusLogInComponent(): LogInContainer
 
     fun plusRegisterComponent(): RegisterContainer
+
+    fun plusAddNewCategoryComponent() :AddNewCategoryContainer
 }

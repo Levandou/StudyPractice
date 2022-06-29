@@ -15,5 +15,10 @@
         android:name="com.velagissellint.presentation.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/addNewCategoryFragment"
+        android:name="com.velagissellint.presentation.ui.addNewCategory.AddNewCategoryFragment"
+        android:label="fragment_add_new_category"
+        tools:layout="@layout/fragment_add_new_category" />
 
 </navigation>

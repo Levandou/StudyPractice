@@ -1,8 +1,10 @@
 package com.velagissellint.studypractice.di.app
 
 import android.app.Application
+import com.velagissellint.presentation.containersDi.AddNewCategoryContainer
 import com.velagissellint.presentation.containersDi.AppContainer
 import com.velagissellint.studypractice.App
+import com.velagissellint.studypractice.di.addNewCategory.AddNewCategoryComponent
 import com.velagissellint.studypractice.di.categoriesList.CategoriesListComponent
 import com.velagissellint.studypractice.di.logIn.LogInComponent
 import com.velagissellint.studypractice.di.register.RegisterComponent
@@ -18,6 +20,8 @@ interface AppComponent : AppContainer {
     override fun plusLogInComponent(): LogInComponent
 
     override fun plusRegisterComponent(): RegisterComponent
+
+    override fun plusAddNewCategoryComponent(): AddNewCategoryComponent
 
     fun inject(app: App)
 

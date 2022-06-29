@@ -34,8 +34,8 @@
         android:layout_above="@id/et_password"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Логин"
         android:fontFamily="@font/roboto_regular"
+        android:hint="Логин"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textSize="15sp" />
