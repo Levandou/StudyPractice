@@ -7,5 +7,7 @@ interface AppContainer {
 
     fun plusRegisterComponent(): RegisterContainer
 
-    fun plusAddNewCategoryComponent() :AddNewCategoryContainer
+    fun plusAddNewCategoryComponent(): AddNewCategoryContainer
+
+    fun plusProductListComponent(): ProductListContainer
 }

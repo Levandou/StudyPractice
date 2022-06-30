@@ -22,6 +22,7 @@ import com.velagissellint.presentation.ViewModelFactory
 import com.velagissellint.presentation.containersDi.ContainerAppContainer
 import com.velagissellint.presentation.databinding.FragmentCategoriesListBinding
 import com.velagissellint.presentation.ui.home.adapters.CategoriesListAdapter
+import com.velagissellint.presentation.ui.productList.adapters.ProductListAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -81,7 +82,7 @@ class CategoriesListFragment : Fragment() {
 //                    inflater.inflate(R.menu.admin_mode, menu)
 //            }
             df.addSnapshotListener { querySnapshot, error ->
-                var a = querySnapshot?.toObject(User::class.java)
+                val a = querySnapshot?.toObject(User::class.java)
                 if (a?.adm == 1)
                     inflater.inflate(R.menu.admin_mode, menu)
                 else
@@ -109,7 +110,10 @@ class CategoriesListFragment : Fragment() {
     private fun setupRecyclerView(view: View) {
         rv = view.findViewById(R.id.rv_category)
         rv.addItemDecoration(DividerItemDecoration(activity?.applicationContext))
-        adapter = CategoriesListAdapter()
+        adapter = CategoriesListAdapter { id ->
+            val action=CategoriesListFragmentDirections.actionNavHomeToProductListFragment(id)
+            navController.navigate(action)
+        }
         rv.adapter = adapter
         //    rv.adapter = adapter.withLoadStateFooter(ToDoListLoadStateAdapter { adapter.retry() })
 //
@@ -133,5 +137,4 @@ class CategoriesListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

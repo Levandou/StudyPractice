@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import com.velagissellint.presentation.R
 import com.velagissellint.presentation.ViewModelFactory
 import com.velagissellint.presentation.containersDi.ContainerAppContainer
 import com.velagissellint.presentation.databinding.FragmentAddNewCategoryBinding
@@ -16,6 +19,8 @@ class AddNewCategoryFragment : Fragment() {
     @Inject
     lateinit var factory: ViewModelFactory
     lateinit var addNewCategoryViewModel: AddNewCategoryViewModel
+    private lateinit var navController: NavController
+
 
     private var _binding: FragmentAddNewCategoryBinding? = null
     private val binding
@@ -31,6 +36,7 @@ class AddNewCategoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        navController = NavHostFragment.findNavController(this)
         addNewCategoryViewModel =
             ViewModelProvider(this, factory)[AddNewCategoryViewModel::class.java]
         _binding = FragmentAddNewCategoryBinding.inflate(inflater, container, false)
@@ -41,6 +47,7 @@ class AddNewCategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btAdd.setOnClickListener {
             addNewCategoryViewModel.addNewCategory(binding.etDescription.text.toString())
+            navController.navigate(R.id.categories_list_fragment)
         }
     }
 

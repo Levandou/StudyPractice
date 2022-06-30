@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/categories_list_fragment">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/categories_list_fragment"
         android:name="com.velagissellint.presentation.ui.home.CategoriesListFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_categories_list" />
+        tools:layout="@layout/fragment_categories_list">
+        <action
+            android:id="@+id/action_nav_home_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.velagissellint.presentation.ui.MainFragment"
@@ -20,5 +24,13 @@
         android:name="com.velagissellint.presentation.ui.addNewCategory.AddNewCategoryFragment"
         android:label="fragment_add_new_category"
         tools:layout="@layout/fragment_add_new_category" />
-
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.velagissellint.presentation.ui.productList.ProductListFragment"
+        android:label="fragment_product_list"
+        tools:layout="@layout/fragment_product_list">
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -6,6 +6,7 @@ import com.velagissellint.data.firebase.UserRepository
 import com.velagissellint.domain.useCases.addNewCategory.AddNewCategoryRepository
 import com.velagissellint.domain.useCases.category.GetCategoryPageRepository
 import com.velagissellint.domain.useCases.logIn.LogInRepository
+import com.velagissellint.domain.useCases.product.GetProductPageRepository
 import com.velagissellint.domain.useCases.registration.CreateAccountRepository
 import dagger.Module
 import dagger.Provides
@@ -35,4 +36,11 @@ class DependenciesModule {
         userRepository: UserRepository,
         categoryRepository: CategoryRepository
     ): GetCategoryPageRepository = RepositoryImpl(userRepository, categoryRepository)
+
+    @Provides
+    fun provideGetProductPage(
+        userRepository: UserRepository,
+        categoryRepository: CategoryRepository
+    ): GetProductPageRepository = RepositoryImpl(userRepository, categoryRepository)
+
 }

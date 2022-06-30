@@ -3,10 +3,12 @@ package com.velagissellint.studypractice.di.app
 import android.app.Application
 import com.velagissellint.presentation.containersDi.AddNewCategoryContainer
 import com.velagissellint.presentation.containersDi.AppContainer
+import com.velagissellint.presentation.containersDi.ProductListContainer
 import com.velagissellint.studypractice.App
 import com.velagissellint.studypractice.di.addNewCategory.AddNewCategoryComponent
 import com.velagissellint.studypractice.di.categoriesList.CategoriesListComponent
 import com.velagissellint.studypractice.di.logIn.LogInComponent
+import com.velagissellint.studypractice.di.productList.ProductListComponent
 import com.velagissellint.studypractice.di.register.RegisterComponent
 import dagger.BindsInstance
 import dagger.Component
@@ -22,6 +24,8 @@ interface AppComponent : AppContainer {
     override fun plusRegisterComponent(): RegisterComponent
 
     override fun plusAddNewCategoryComponent(): AddNewCategoryComponent
+
+    override fun plusProductListComponent(): ProductListComponent
 
     fun inject(app: App)
 

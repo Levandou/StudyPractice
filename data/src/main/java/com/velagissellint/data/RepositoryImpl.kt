@@ -6,11 +6,14 @@ import androidx.paging.PagingData
 import com.velagissellint.data.firebase.CategoryRepository
 import com.velagissellint.data.firebase.UserRepository
 import com.velagissellint.data.paging.PagingSource
+import com.velagissellint.data.paging.PagingSourceProducts
 import com.velagissellint.domain.models.Category
+import com.velagissellint.domain.models.Product
 import com.velagissellint.domain.models.User
 import com.velagissellint.domain.useCases.addNewCategory.AddNewCategoryRepository
 import com.velagissellint.domain.useCases.category.GetCategoryPageRepository
 import com.velagissellint.domain.useCases.logIn.LogInRepository
+import com.velagissellint.domain.useCases.product.GetProductPageRepository
 import com.velagissellint.domain.useCases.registration.CreateAccountRepository
 import kotlinx.coroutines.flow.Flow
 
@@ -18,7 +21,7 @@ class RepositoryImpl(
     private val userRepository: UserRepository,
     private val categoryRepository: CategoryRepository
 ) : CreateAccountRepository, LogInRepository, AddNewCategoryRepository,
-    GetCategoryPageRepository {
+    GetCategoryPageRepository, GetProductPageRepository {
     override fun createAccount(
         email: String,
         password: String,
@@ -45,5 +48,17 @@ class RepositoryImpl(
                 maxSize = 100
             ),
             pagingSourceFactory = { PagingSource() },
+        ).flow
+
+    override fun getProductPage(id: String): Flow<PagingData<Product>> =
+        Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                prefetchDistance = 5,
+                enablePlaceholders = false,
+                initialLoadSize = 20,
+                maxSize = 100
+            ),
+            pagingSourceFactory = { PagingSourceProducts(id) },
         ).flow
 }

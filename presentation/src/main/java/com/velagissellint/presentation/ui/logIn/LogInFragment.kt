@@ -55,8 +55,13 @@ class LogInFragment : BaseFragment() {
                 else
                     Toast.makeText(activity, "Поля не должны быть пустыми", Toast.LENGTH_SHORT)
                         .show()
-                navController.navigate(R.id.nav_home)
+                navController.navigate(R.id.categories_list_fragment)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
