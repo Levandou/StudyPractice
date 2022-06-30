@@ -22,9 +22,8 @@ import com.velagissellint.presentation.R
 import com.velagissellint.presentation.ViewModelFactory
 import com.velagissellint.presentation.containersDi.ContainerAppContainer
 import com.velagissellint.presentation.databinding.FragmentProductListBinding
-import com.velagissellint.presentation.ui.home.CategoriesListFragmentDirections
 import com.velagissellint.presentation.ui.home.DividerItemDecoration
-import com.velagissellint.presentation.ui.home.adapters.CategoriesListAdapter
+import com.velagissellint.presentation.ui.deliveries.adapters.DeliveriesAdapter
 import com.velagissellint.presentation.ui.productList.adapters.ProductListAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -76,7 +75,7 @@ class ProductListFragment : Fragment() {
     private fun setupRecyclerView(view: View) {
         rv = view.findViewById(R.id.rv_product)
         rv.addItemDecoration(DividerItemDecoration(activity?.applicationContext))
-        adapter=ProductListAdapter()
+        adapter= ProductListAdapter()
         rv.adapter = adapter
         //    rv.adapter = adapter.withLoadStateFooter(ToDoListLoadStateAdapter { adapter.retry() })
 //

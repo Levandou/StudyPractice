@@ -10,4 +10,6 @@ interface AppContainer {
     fun plusAddNewCategoryComponent(): AddNewCategoryContainer
 
     fun plusProductListComponent(): ProductListContainer
+
+    fun plusDeliveriesComponent(): DeliveriesContainer
 }

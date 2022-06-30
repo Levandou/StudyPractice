@@ -4,7 +4,6 @@ import android.content.Context
 import com.google.firebase.firestore.FirebaseFirestore
 import javax.inject.Inject
 
-
 class CategoryRepository @Inject constructor(
     private val context: Context
 ) {

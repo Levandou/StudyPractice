@@ -22,7 +22,6 @@ import com.velagissellint.presentation.ViewModelFactory
 import com.velagissellint.presentation.containersDi.ContainerAppContainer
 import com.velagissellint.presentation.databinding.FragmentCategoriesListBinding
 import com.velagissellint.presentation.ui.home.adapters.CategoriesListAdapter
-import com.velagissellint.presentation.ui.productList.adapters.ProductListAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch

@@ -52,7 +52,8 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home//сюда положить нужные для меню
+                R.id.categories_list_fragment,
+                R.id.deliveriesFragment//сюда положить нужные для меню
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -114,13 +115,7 @@ interface FragmentReplacer {
 
 class MyViewPager2Adapter(fragment: Fragment) : FragmentStateAdapter(fragment),
     FragmentReplacer {
-
-    companion object {
-        private const val PAGE_COUNT = 2
-    }
-
     private val mapOfFragment = ArrayMap<Int, BaseFragment>()
-
 
     override fun replace(position: Int, newFragment: BaseFragment, isNotify: Boolean) {
         mapOfFragment[position] = newFragment
@@ -138,12 +133,9 @@ class MyViewPager2Adapter(fragment: Fragment) : FragmentStateAdapter(fragment),
             pagePos = position,
             fragmentReplacer = this
         )
-
         replace(position, fragment, isNotify)
-
         return fragment
     }
-
 
     override fun createFragment(position: Int): Fragment {
         return mapOfFragment[position] ?: replaceDef(position, false)
@@ -164,4 +156,8 @@ class MyViewPager2Adapter(fragment: Fragment) : FragmentStateAdapter(fragment),
         mapOfFragment[position]?.pageId ?: super.getItemId(position)
 
     override fun getItemCount() = PAGE_COUNT
+
+    companion object {
+        private const val PAGE_COUNT = 2
+    }
 }

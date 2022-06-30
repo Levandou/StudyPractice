@@ -33,4 +33,9 @@
             android:name="myArg"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/deliveriesFragment"
+        android:name="com.velagissellint.presentation.ui.deliveries.DeliveriesFragment"
+        android:label="fragment_deliveries"
+        tools:layout="@layout/fragment_deliveries" />
 </navigation>
