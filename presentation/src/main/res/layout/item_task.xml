@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_task_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Заменить огромную лампочку в коридоре"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name_person_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Назначено:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_name" />
+
+        <TextView
+            android:id="@+id/tv_name_assigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:text="Сигал Лев"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tv_name_person_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_task_name" />
+
+        <TextView
+            android:id="@+id/tv_reviewer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Проверяющий:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_person_label" />
+
+        <TextView
+            android:id="@+id/tv_name_reviewer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:text="Не Лев"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tv_reviewer_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_person_label" />
+
+        <TextView
+            android:id="@+id/tv_author_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Автор:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_reviewer" />
+
+        <TextView
+            android:id="@+id/tv_name_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:text="Не Лев не Сигал"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tv_author_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_reviewer" />
+
+        <TextView
+            android:id="@+id/tv_document_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Статус:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_author" />
+
+        <TextView
+            android:id="@+id/tv_document_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:text="backlog"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tv_document_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_author" />
+
+        <TextView
+            android:id="@+id/tv_document_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22.04.2024"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_accent"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>

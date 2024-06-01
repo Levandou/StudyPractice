@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".diplom.profile.statment.StatementDialog">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:letterSpacing="0.07"
+        android:text="Запрос на пересмотр уровня"
+        android:textColor="@color/black"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/tv_new_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Новый уровень:"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Текст"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tv_text_statement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        tools:text="Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень Новый уровень " />
+
+</LinearLayout>

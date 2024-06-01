@@ -1,17 +1,12 @@
 package com.velagissellint.domain.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "users")
 data class User(
+    @PrimaryKey
+    val id: String,
     var email: String,
-    var firstName: String,
-    var phone: String,
-    var secondName: String,
-    var adm: Int,
-) {
-    constructor() : this(
-        email = "",
-        firstName = "",
-        phone = "", /*isAdmin = "",*/
-        secondName = "",
-        0
-    )
-}
+    var isAdmin: Boolean
+)

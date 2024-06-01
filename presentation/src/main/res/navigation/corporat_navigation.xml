@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/corporat_navigation"
+    app:startDestination="@id/logInFragment">
+
+    <fragment
+        android:id="@+id/documentationFragment"
+        android:name="com.velagissellint.presentation.diplom.document_list.DocumentationsFragment"
+        android:label="Документы"
+        tools:layout="@layout/fragment_documentation" >
+        <action
+            android:id="@+id/action_documentationFragment_to_documentFragment"
+            app:destination="@id/documentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/documentFragment"
+        android:name="com.velagissellint.presentation.diplom.document.DocumentFragment"
+        android:label="Документ"
+        tools:layout="@layout/fragment_document" />
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.velagissellint.presentation.diplom.task_list.TaskListFragment"
+        android:label="Задачи"
+        tools:layout="@layout/fragment_task_list" >
+        <action
+            android:id="@+id/action_taskList_to_task"
+            app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.velagissellint.presentation.diplom.task.TaskFragment"
+        android:label="Задача"
+        tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.velagissellint.presentation.diplom.profile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_profile_fragment"
+        app:destination="@+id/profileFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_tasks_fragment"
+        app:destination="@+id/taskListFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_docs"
+        app:destination="@+id/documentationFragment"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.velagissellint.presentation.diplom.logIn.LogInFragment"
+        android:label="Вход"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logIn_to_profile"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_logIn_to_adminChooseAction"
+            app:destination="@id/adminChooseActionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.velagissellint.presentation.diplom.profile.chart.ChartFragment"
+        android:label="Выбрать расписание"
+        tools:layout="@layout/fragment_chart"/>
+    <fragment
+        android:id="@+id/adminChooseActionFragment"
+        android:name="com.velagissellint.presentation.diplom.admin.choose_action.AdminChooseActionFragment"
+        android:label="Выберите действие"
+        tools:layout="@layout/fragment_admin_choose_action" >
+        <action
+            android:id="@+id/action_adminChooseAction_to_searchProfiles"
+            app:destination="@id/searchProfilesFragment" />
+        <action
+            android:id="@+id/action_adminChooseAction_to_addProfile"
+            app:destination="@id/addProfileFragment" />
+        <action
+            android:id="@+id/action_adminChooseAction_to_addTeam"
+            app:destination="@id/addTeamFragment" />
+        <action
+            android:id="@+id/action_adminChooseActionFragment_to_addDocumentFragment"
+            app:destination="@id/addDocumentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchProfilesFragment"
+        android:name="com.velagissellint.presentation.diplom.admin.search_admin.SearchProfilesFragment"
+        android:label="Поиск профиля"
+        tools:layout="@layout/fragment_search_profiles" >
+        <action
+            android:id="@+id/action_searchProfiles_to_adminProfile"
+            app:destination="@id/adminProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProfileFragment"
+        android:name="com.velagissellint.presentation.diplom.admin.add_profile.AddProfileFragment"
+        android:label="Добавить профиль"
+        tools:layout="@layout/fragment_add_profile" />
+    <fragment
+        android:id="@+id/addTeamFragment"
+        android:name="com.velagissellint.presentation.diplom.admin.add_team.AddTeamFragment"
+        android:label="Добавить команду"
+        tools:layout="@layout/fragment_add_team" />
+    <fragment
+        android:id="@+id/adminProfileFragment"
+        android:name="com.velagissellint.presentation.diplom.admin.check_profile.AdminProfileFragment"
+        android:label="Сотрудник"
+        tools:layout="@layout/fragment_admin_profile"/>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.velagissellint.presentation.diplom.add_task.AddTaskFragment"
+        android:label="Добавить задачу"
+        tools:layout="@layout/fragment_add_task"/>
+    <fragment
+        android:id="@+id/addDocumentFragment"
+        android:name="com.velagissellint.presentation.diplom.admin.add_document.AddDocumentFragment"
+        android:label="Добавить документ" />
+</navigation>

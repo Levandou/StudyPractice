@@ -8,5 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightGreen">#00866e</color>
+    <color name="background_main">#FAFAFA</color>
 
+    <color name="grey_accent">#D3D3D3</color>
+    <color name="red_accent">#F44336</color>
+    <color name="green_accent">#FF8EC688</color>
+    <color name="green_light">#14D300</color>
+    <color name="blue_accent">#2E48FF</color>
+    <color name="blue_accent2">#FF959FEA</color>
 </resources>

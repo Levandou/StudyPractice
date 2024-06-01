@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/categories_list_fragment">
+    android:id="@+id/mobile_navigation">
 
     <fragment
         android:id="@+id/categories_list_fragment"
@@ -38,4 +37,10 @@
         android:name="com.velagissellint.presentation.ui.deliveries.DeliveriesFragment"
         android:label="fragment_deliveries"
         tools:layout="@layout/fragment_deliveries" />
+
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.velagissellint.presentation.diplom.logIn.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" />
 </navigation>
